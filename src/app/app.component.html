@@ -1,12 +1,13 @@
 <h1 class="title">{{ title }}</h1>
 
 <ul>
-  <p *ngIf="todos.length==0"><small>Não tenho nenhuma tarefa hoje!</small></p>
+  <p *ngIf="todos.length==0" class="text-center"><small>Não tenho nenhuma tarefa hoje!</small></p>
   <li *ngFor="let todo of todos">
     {{ todo.title }}
-    <button *ngIf="!todo.done" (click)="markAsDone(todo)"><i class="fa-solid fa-circle-check"></i></button>
-    <button *ngIf="todo.done" (click)="markAsUndone(todo)"><i class="fa-solid fa-pen-to-square"></i></button>
-    <button (click)="remove(todo)"><i class="fa-solid fa-trash-can"></i></button></li>
+    <button (click)="remove(todo)"><i class="fa-solid fa-trash-can"></i></button>
+    <button *ngIf="!todo.done" (click)="markAsDone(todo)"><i class="far fa-circle-check"></i></button>
+    <button *ngIf="todo.done" (click)="markAsUndone(todo)"><i class="fas fa-circle-check"></i></button>
+  </li>
 </ul>
 
 <form [formGroup]="form" id="tarefa">
